@@ -1,6 +1,7 @@
 import cv2
 import pickle
 import face_recognition
+import imutils
 from imutils.video import VideoStream
 from time import sleep
 
@@ -14,7 +15,7 @@ sleep(2)
 while True:
 	img = cam.read()
 	# ret, img = cam.read()
-	# img = imutils.resize(img,width=500)
+	img = imutils.resize(img,width=500)
 	img = cv2.flip(img, 1)
 	gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 	rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
