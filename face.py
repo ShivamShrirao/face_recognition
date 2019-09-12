@@ -6,7 +6,7 @@ from imutils.video import VideoStream
 from time import sleep
 
 data = pickle.loads(open("encodings.pkl","rb").read())
-face_cascade = cv2.CascadeClassifier('/usr/lib/python3.7/site-packages/cv2/data/haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 # cam = cv2.VideoCapture(0)
 cam = VideoStream(src=0).start()
