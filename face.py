@@ -9,13 +9,14 @@ data = pickle.loads(open("encodings.pkl","rb").read())
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 # cam = cv2.VideoCapture(0)
-cam = VideoStream(src=0).start()
+# cam = VideoStream(src=0).start()
 sleep(2)
 
 while True:
-	img = cam.read()
+	# img = cam.read()
+	img = cv2.imread("test.png")
 	# ret, img = cam.read()
-	img = imutils.resize(img,width=500)
+	# img = imutils.resize(img,width=500)
 	img = cv2.flip(img, 1)
 	gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 	rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -44,6 +45,9 @@ while True:
 
 		y = top-15 if top-15>15 else top+15
 		cv2.putText(img,name,(left,y),cv2.FONT_HERSHEY_SIMPLEX,0.75,(0,0,255),2)
+
+	cv2.imwrite("out.png")
+	break
 
 	cv2.imshow('webcam', img)
 	key = cv2.waitKey(1) & 0xff
